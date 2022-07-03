@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoParserBot.CryptoBot", "CryptoParserBot.CryptoBot.csproj", "{45C63680-F25E-49A4-99BD-F447B741D6AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoParserBot.RestApi", "..\CryptoParserBot.RestApi's\CryptoParserBot.RestApi.csproj", "{AEF570EE-CB8C-47E8-9F26-164D9C9B40DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoParserBot.AdditionalToolLibrary", "..\CryptoParserBot.AdditionalToolLibrary\CryptoParserBot.AdditionalToolLibrary.csproj", "{F877CC1B-D3C2-48F6-8FFF-08BC111AAB8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoParserBot.ExchangeClients", "..\CryptoParserBot.ExchangeClient's\CryptoParserBot.ExchangeClients.csproj", "{FC7D8281-8C5B-44BD-8D8E-597D2EA51D6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45C63680-F25E-49A4-99BD-F447B741D6AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C63680-F25E-49A4-99BD-F447B741D6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C63680-F25E-49A4-99BD-F447B741D6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C63680-F25E-49A4-99BD-F447B741D6AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF570EE-CB8C-47E8-9F26-164D9C9B40DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF570EE-CB8C-47E8-9F26-164D9C9B40DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF570EE-CB8C-47E8-9F26-164D9C9B40DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF570EE-CB8C-47E8-9F26-164D9C9B40DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F877CC1B-D3C2-48F6-8FFF-08BC111AAB8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F877CC1B-D3C2-48F6-8FFF-08BC111AAB8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F877CC1B-D3C2-48F6-8FFF-08BC111AAB8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F877CC1B-D3C2-48F6-8FFF-08BC111AAB8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC7D8281-8C5B-44BD-8D8E-597D2EA51D6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC7D8281-8C5B-44BD-8D8E-597D2EA51D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC7D8281-8C5B-44BD-8D8E-597D2EA51D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC7D8281-8C5B-44BD-8D8E-597D2EA51D6C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1224DC16-A175-43F6-A205-33226363C3AB}
+	EndGlobalSection
+EndGlobal
