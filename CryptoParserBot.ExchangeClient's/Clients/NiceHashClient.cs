@@ -27,14 +27,8 @@ namespace CryptoParserBot.ExchangeClient_s.Clients
         {
             _uri = "https://api2.nicehash.com";
             _organizationId = "86a1696b-1820-4a9b-9d75-30cfdb353a75";
-            _key = "43a14bee-489a-4225-98ab-a6790e763f37";
-            _secretKey = "35cc7214-c731-482d-af64-bf4a3c454efb4da01634-343d-4064-b94c-4a33989cc264";
-
-            // test exchange
-            //_uri = "https://api-test.nicehash.com";
-            //_key = "f33eae35-12e2-4deb-87f6-2eccf2fc4bf4";
-            //_secretKey = "cfec6644-602e-4a8a-a194-d882b645b00f9baac2e3-691b-435f-aecd-42352b093f28";
-            //_organizationId = "f1da9a28-de2b-494e-a804-389675031417";
+            _key = "";
+            _secretKey = "";
 
             _api = new NiceHashAPI(_uri, _organizationId, _key, _secretKey);
         }
