@@ -10,14 +10,17 @@ namespace CryptoParserBot.CryptoBot
     public sealed class CryptoBot
     {
         private IExchangeClient _client;
-
-        private decimal _priceLimit;// example: 24500$   (write user)
-        private string _firstCoin;// btc
-        private string _secondCoin;// usdt
+        private CryptoBotOptions _options;
 
         public CryptoBot(IExchangeClient client)
         {
             _client = client;
+        }
+
+        public CryptoBot(IExchangeClient client, CryptoBotOptions options) 
+            : this(client)
+        {
+            _options = options;
         }
 
         /// <summary>
@@ -26,7 +29,8 @@ namespace CryptoParserBot.CryptoBot
         /// </summary>
         public void StartParsing()// start command
         {
-            var currency = _firstCoin + _secondCoin;
+            var currency =
+                _options.FirstCoin + _options.SecondCoin;
 
             while (true)
             {
@@ -34,7 +38,8 @@ namespace CryptoParserBot.CryptoBot
 
                 var totalPrice = _client.GetCurrencyPrice(currency);
 
-                if (totalPrice <= _priceLimit) continue;
+                if (totalPrice <= _options.PriceLimit)
+                    continue;
 
                 var balances =
                     _client.GetAccountBalance().FirstOrDefault(x => x.Currency == "BTC");

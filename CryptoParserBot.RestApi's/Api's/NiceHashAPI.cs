@@ -31,18 +31,20 @@ namespace CryptoParserBot.RestApi_s.Api_s
         {
             var strEndpoint = endpoint.ToDescription();
 
+            var full = strEndpoint + query;
+
             if (extraEndpoint != null)
                 strEndpoint += extraEndpoint;
 
             var client = new RestClient(_uri);
-            var request = new RestRequest(strEndpoint);
+            var request = new RestRequest(full);
 
             // user authentication
             if (auth)
             {
                 var time = GetServerTimestamp();
                 var nonce = Guid.NewGuid().ToString();
-                var digest = HashBySegments(time, nonce, _organizationId, method.ToString().ToUpper(), strEndpoint, query, payload);
+                var digest = HashBySegments(time, nonce, _organizationId, method.ToString().ToUpper(), strEndpoint, GetQuery(full), payload);
 
                 if (requestId)
                 {

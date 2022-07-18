@@ -26,9 +26,21 @@ namespace CryptoParserBot.ExchangeClient_s.Clients
         public NiceHashClient()
         {
             _uri = "https://api2.nicehash.com";
-            _organizationId = "86a1696b-1820-4a9b-9d75-30cfdb353a75";
+
+            // keys
+            _organizationId = "";
             _key = "";
             _secretKey = "";
+
+            _api = new NiceHashAPI(_uri, _organizationId, _key, _secretKey);
+        }
+
+        public NiceHashClient(string key, string secretKey, string organizationId)
+        {
+            _uri = "https://api2.nicehash.com";
+            _key = key;
+            _organizationId = organizationId;
+            _secretKey = secretKey;
 
             _api = new NiceHashAPI(_uri, _organizationId, _key, _secretKey);
         }
@@ -84,6 +96,7 @@ namespace CryptoParserBot.ExchangeClient_s.Clients
             return result;
         }
 
+        // todo replace to api method
         public CurrencyBalance GetCurrencyBalance(string currency)
         {
             // get all the balance currency on the exchange
@@ -102,7 +115,7 @@ namespace CryptoParserBot.ExchangeClient_s.Clients
             throw new ArgumentException("[Argument ERROR] : Invalid currency name");
         }
 
-        //todo fix this method
+        // todo fix this method
         public bool CreateSellOrder(string currency, decimal amount, decimal price)
         {
             var strPrice = price.ToString(CultureInfo.InvariantCulture);
