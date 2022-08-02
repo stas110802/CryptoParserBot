@@ -13,3 +13,14 @@ Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\
 Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\CryptoParserBot.ConsoleApplication.pdb
 Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\CryptoParserBot.ConsoleApplication.genruntimeconfig.cache
 Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\ref\CryptoParserBot.ConsoleApplication.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\Newtonsoft.Json.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\RestSharp.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.CryptoBot.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.ExchangeClients.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.RestApi.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.CryptoBot.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.ExchangeClients.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.RestApi.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\CryptoParserBot.ConsoleApplication.csproj.CopyComplete
