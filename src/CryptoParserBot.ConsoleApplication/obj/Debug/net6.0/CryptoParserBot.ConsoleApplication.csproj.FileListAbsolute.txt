@@ -1,0 +1,15 @@
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.ConsoleApplication.exe
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.ConsoleApplication.deps.json
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.ConsoleApplication.runtimeconfig.json
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.ConsoleApplication.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\bin\Debug\net6.0\CryptoParserBot.ConsoleApplication.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\CryptoParserBot.ConsoleApplication.csproj.AssemblyReference.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\CryptoParserBot.ConsoleApplication.GeneratedMSBuildEditorConfig.editorconfig
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\CryptoParserBot.ConsoleApplication.AssemblyInfoInputs.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\CryptoParserBot.ConsoleApplication.AssemblyInfo.cs
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\CryptoParserBot.ConsoleApplication.csproj.CoreCompileInputs.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\CryptoParserBot.ConsoleApplication.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\refint\CryptoParserBot.ConsoleApplication.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\CryptoParserBot.ConsoleApplication.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\CryptoParserBot.ConsoleApplication.genruntimeconfig.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ConsoleApplication\obj\Debug\net6.0\ref\CryptoParserBot.ConsoleApplication.dll

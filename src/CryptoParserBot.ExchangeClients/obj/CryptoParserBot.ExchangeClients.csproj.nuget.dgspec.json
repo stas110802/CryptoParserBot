@@ -1,0 +1,204 @@
+{
+  "format": 1,
+  "restore": {
+    "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.ExchangeClients\\CryptoParserBot.ExchangeClients.csproj": {}
+  },
+  "projects": {
+    "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.AdditionalToolLibrary\\CryptoParserBot.AdditionalToolLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.AdditionalToolLibrary\\CryptoParserBot.AdditionalToolLibrary.csproj",
+        "projectName": "CryptoParserBot.AdditionalToolLibrary",
+        "projectPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.AdditionalToolLibrary\\CryptoParserBot.AdditionalToolLibrary.csproj",
+        "packagesPath": "C:\\Users\\SosiskaKiller\\.nuget\\packages\\",
+        "outputPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.AdditionalToolLibrary\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\SosiskaKiller\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2-beta1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.ExchangeClients\\CryptoParserBot.ExchangeClients.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.ExchangeClients\\CryptoParserBot.ExchangeClients.csproj",
+        "projectName": "CryptoParserBot.ExchangeClients",
+        "projectPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.ExchangeClients\\CryptoParserBot.ExchangeClients.csproj",
+        "packagesPath": "C:\\Users\\SosiskaKiller\\.nuget\\packages\\",
+        "outputPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.ExchangeClients\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\SosiskaKiller\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.RestApi\\CryptoParserBot.RestApi.csproj": {
+                "projectPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.RestApi\\CryptoParserBot.RestApi.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2-beta1, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[108.0.2-alpha.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.RestApi\\CryptoParserBot.RestApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.RestApi\\CryptoParserBot.RestApi.csproj",
+        "projectName": "CryptoParserBot.RestApi",
+        "projectPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.RestApi\\CryptoParserBot.RestApi.csproj",
+        "packagesPath": "C:\\Users\\SosiskaKiller\\.nuget\\packages\\",
+        "outputPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.RestApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\SosiskaKiller\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.AdditionalToolLibrary\\CryptoParserBot.AdditionalToolLibrary.csproj": {
+                "projectPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.AdditionalToolLibrary\\CryptoParserBot.AdditionalToolLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2-beta1, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[108.0.2-alpha.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

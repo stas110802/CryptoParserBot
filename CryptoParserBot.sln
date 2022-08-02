@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{68D5C39C-BED3-4C81-8DB6-1533F12C7275}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoParserBot.AdditionalToolLibrary", "src\CryptoParserBot.AdditionalToolLibrary\CryptoParserBot.AdditionalToolLibrary.csproj", "{E52C6C81-3A23-42A3-BAE1-051712075346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoParserBot.CryptoBot", "src\CryptoParserBot.CryptoBot\CryptoParserBot.CryptoBot.csproj", "{50086A4C-DEB9-43A3-AE0C-255092E76ED0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoParserBot.ExchangeClients", "src\CryptoParserBot.ExchangeClients\CryptoParserBot.ExchangeClients.csproj", "{68380939-B770-4AB1-AFB5-96CB5BFE39CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoParserBot.RestApi", "src\CryptoParserBot.RestApi\CryptoParserBot.RestApi.csproj", "{64A34239-D8E9-4E78-A45D-DE7EFA3345FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoParserBot.ConsoleApplication", "src\CryptoParserBot.ConsoleApplication\CryptoParserBot.ConsoleApplication.csproj", "{4EFBB1DC-1D8A-4980-BE5B-4C04584B4501}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E52C6C81-3A23-42A3-BAE1-051712075346} = {68D5C39C-BED3-4C81-8DB6-1533F12C7275}
+		{50086A4C-DEB9-43A3-AE0C-255092E76ED0} = {68D5C39C-BED3-4C81-8DB6-1533F12C7275}
+		{68380939-B770-4AB1-AFB5-96CB5BFE39CF} = {68D5C39C-BED3-4C81-8DB6-1533F12C7275}
+		{64A34239-D8E9-4E78-A45D-DE7EFA3345FE} = {68D5C39C-BED3-4C81-8DB6-1533F12C7275}
+		{4EFBB1DC-1D8A-4980-BE5B-4C04584B4501} = {68D5C39C-BED3-4C81-8DB6-1533F12C7275}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E52C6C81-3A23-42A3-BAE1-051712075346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E52C6C81-3A23-42A3-BAE1-051712075346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E52C6C81-3A23-42A3-BAE1-051712075346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E52C6C81-3A23-42A3-BAE1-051712075346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50086A4C-DEB9-43A3-AE0C-255092E76ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50086A4C-DEB9-43A3-AE0C-255092E76ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50086A4C-DEB9-43A3-AE0C-255092E76ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50086A4C-DEB9-43A3-AE0C-255092E76ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68380939-B770-4AB1-AFB5-96CB5BFE39CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68380939-B770-4AB1-AFB5-96CB5BFE39CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68380939-B770-4AB1-AFB5-96CB5BFE39CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68380939-B770-4AB1-AFB5-96CB5BFE39CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64A34239-D8E9-4E78-A45D-DE7EFA3345FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A34239-D8E9-4E78-A45D-DE7EFA3345FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A34239-D8E9-4E78-A45D-DE7EFA3345FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A34239-D8E9-4E78-A45D-DE7EFA3345FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EFBB1DC-1D8A-4980-BE5B-4C04584B4501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EFBB1DC-1D8A-4980-BE5B-4C04584B4501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EFBB1DC-1D8A-4980-BE5B-4C04584B4501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EFBB1DC-1D8A-4980-BE5B-4C04584B4501}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

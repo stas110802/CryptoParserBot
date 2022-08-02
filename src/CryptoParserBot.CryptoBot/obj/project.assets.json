@@ -1,0 +1,210 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "Newtonsoft.Json/13.0.2-beta1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "RestSharp/108.0.2-alpha.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/RestSharp.dll": {}
+        }
+      },
+      "CryptoParserBot.AdditionalToolLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.2-beta1"
+        },
+        "compile": {
+          "bin/placeholder/CryptoParserBot.AdditionalToolLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CryptoParserBot.AdditionalToolLibrary.dll": {}
+        }
+      },
+      "CryptoParserBot.ExchangeClients/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CryptoParserBot.RestApi": "1.0.0",
+          "Newtonsoft.Json": "13.0.2-beta1",
+          "RestSharp": "108.0.2-alpha.0.6"
+        },
+        "compile": {
+          "bin/placeholder/CryptoParserBot.ExchangeClients.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CryptoParserBot.ExchangeClients.dll": {}
+        }
+      },
+      "CryptoParserBot.RestApi/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CryptoParserBot.AdditionalToolLibrary": "1.0.0",
+          "Newtonsoft.Json": "13.0.2-beta1",
+          "RestSharp": "108.0.2-alpha.0.6"
+        },
+        "compile": {
+          "bin/placeholder/CryptoParserBot.RestApi.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CryptoParserBot.RestApi.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Newtonsoft.Json/13.0.2-beta1": {
+      "sha512": "lrHT3bmqM13QHvgtj2Y30BCRsq6lX07klW5tScx2B7ihqWeG6aVXrHxVALN34+boed9ybVtlRFLOuKD44Xuttg==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.2-beta1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.2-beta1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "RestSharp/108.0.2-alpha.0.6": {
+      "sha512": "Z0v6JY65VJclAjvi3ZBs06pdDsrJcA0LzFv8mRRsexh6YyabUGF5FET1HGRt0TyzbZ/qCfORqDw0xScxyG/UEQ==",
+      "type": "package",
+      "path": "restsharp/108.0.2-alpha.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/RestSharp.dll",
+        "lib/net5.0/RestSharp.xml",
+        "lib/net6.0/RestSharp.dll",
+        "lib/net6.0/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.108.0.2-alpha.0.6.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
+      ]
+    },
+    "CryptoParserBot.AdditionalToolLibrary/1.0.0": {
+      "type": "project",
+      "path": "../CryptoParserBot.AdditionalToolLibrary/CryptoParserBot.AdditionalToolLibrary.csproj",
+      "msbuildProject": "../CryptoParserBot.AdditionalToolLibrary/CryptoParserBot.AdditionalToolLibrary.csproj"
+    },
+    "CryptoParserBot.ExchangeClients/1.0.0": {
+      "type": "project",
+      "path": "../CryptoParserBot.ExchangeClients/CryptoParserBot.ExchangeClients.csproj",
+      "msbuildProject": "../CryptoParserBot.ExchangeClients/CryptoParserBot.ExchangeClients.csproj"
+    },
+    "CryptoParserBot.RestApi/1.0.0": {
+      "type": "project",
+      "path": "../CryptoParserBot.RestApi/CryptoParserBot.RestApi.csproj",
+      "msbuildProject": "../CryptoParserBot.RestApi/CryptoParserBot.RestApi.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "CryptoParserBot.AdditionalToolLibrary >= 1.0.0",
+      "CryptoParserBot.ExchangeClients >= 1.0.0",
+      "Newtonsoft.Json >= 13.0.2-beta1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\SosiskaKiller\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.CryptoBot\\CryptoParserBot.CryptoBot.csproj",
+      "projectName": "CryptoParserBot.CryptoBot",
+      "projectPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.CryptoBot\\CryptoParserBot.CryptoBot.csproj",
+      "packagesPath": "C:\\Users\\SosiskaKiller\\.nuget\\packages\\",
+      "outputPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.CryptoBot\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\SosiskaKiller\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.AdditionalToolLibrary\\CryptoParserBot.AdditionalToolLibrary.csproj": {
+              "projectPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.AdditionalToolLibrary\\CryptoParserBot.AdditionalToolLibrary.csproj"
+            },
+            "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.ExchangeClients\\CryptoParserBot.ExchangeClients.csproj": {
+              "projectPath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.ExchangeClients\\CryptoParserBot.ExchangeClients.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "dependencies": {
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.2-beta1, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

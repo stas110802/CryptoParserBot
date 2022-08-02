@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "hqa/hRAWYlufGCTTAAIUQpQHTgKq/MyoWbm3hfjd64rQ8yUVBx9EHUHI1hBxHa+06ZG/R+8uqNbPpJtL3zLNuw==",
+  "success": true,
+  "projectFilePath": "Z:\\C#-Projects\\CryptoParserBot\\src\\CryptoParserBot.ExchangeClients\\CryptoParserBot.ExchangeClients.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SosiskaKiller\\.nuget\\packages\\newtonsoft.json\\13.0.2-beta1\\newtonsoft.json.13.0.2-beta1.nupkg.sha512",
+    "C:\\Users\\SosiskaKiller\\.nuget\\packages\\restsharp\\108.0.2-alpha.0.6\\restsharp.108.0.2-alpha.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}
