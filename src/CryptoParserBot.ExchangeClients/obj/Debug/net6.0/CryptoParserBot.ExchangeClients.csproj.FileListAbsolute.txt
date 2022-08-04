@@ -1,0 +1,17 @@
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\bin\Debug\net6.0\CryptoParserBot.ExchangeClients.deps.json
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\bin\Debug\net6.0\CryptoParserBot.ExchangeClients.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\bin\Debug\net6.0\CryptoParserBot.ExchangeClients.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\bin\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\bin\Debug\net6.0\CryptoParserBot.RestApi.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\bin\Debug\net6.0\CryptoParserBot.RestApi.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\bin\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\obj\Debug\net6.0\CryptoParserBot.ExchangeClients.csproj.AssemblyReference.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\obj\Debug\net6.0\CryptoParserBot.ExchangeClients.GeneratedMSBuildEditorConfig.editorconfig
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\obj\Debug\net6.0\CryptoParserBot.ExchangeClients.AssemblyInfoInputs.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\obj\Debug\net6.0\CryptoParserBot.ExchangeClients.AssemblyInfo.cs
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\obj\Debug\net6.0\CryptoParserBot.ExchangeClients.csproj.CoreCompileInputs.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\obj\Debug\net6.0\CryptoParserBot.ExchangeClients.csproj.CopyComplete
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\obj\Debug\net6.0\CryptoParserBot.ExchangeClients.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\obj\Debug\net6.0\refint\CryptoParserBot.ExchangeClients.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\obj\Debug\net6.0\CryptoParserBot.ExchangeClients.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.ExchangeClients\obj\Debug\net6.0\ref\CryptoParserBot.ExchangeClients.dll

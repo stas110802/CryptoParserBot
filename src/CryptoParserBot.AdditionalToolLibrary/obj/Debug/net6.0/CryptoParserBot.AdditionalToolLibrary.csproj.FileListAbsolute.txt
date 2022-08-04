@@ -1,0 +1,12 @@
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\bin\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.deps.json
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\bin\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\bin\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\obj\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.csproj.AssemblyReference.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\obj\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.GeneratedMSBuildEditorConfig.editorconfig
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\obj\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.AssemblyInfoInputs.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\obj\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.AssemblyInfo.cs
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\obj\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.csproj.CoreCompileInputs.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\obj\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\obj\Debug\net6.0\refint\CryptoParserBot.AdditionalToolLibrary.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\obj\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.AdditionalToolLibrary\obj\Debug\net6.0\ref\CryptoParserBot.AdditionalToolLibrary.dll

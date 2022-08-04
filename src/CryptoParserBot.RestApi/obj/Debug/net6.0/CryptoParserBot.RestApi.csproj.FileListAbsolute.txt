@@ -1,0 +1,15 @@
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\bin\Debug\net6.0\CryptoParserBot.RestApi.deps.json
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\bin\Debug\net6.0\CryptoParserBot.RestApi.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\bin\Debug\net6.0\CryptoParserBot.RestApi.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\bin\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\bin\Debug\net6.0\CryptoParserBot.AdditionalToolLibrary.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\obj\Debug\net6.0\CryptoParserBot.RestApi.csproj.AssemblyReference.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\obj\Debug\net6.0\CryptoParserBot.RestApi.GeneratedMSBuildEditorConfig.editorconfig
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\obj\Debug\net6.0\CryptoParserBot.RestApi.AssemblyInfoInputs.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\obj\Debug\net6.0\CryptoParserBot.RestApi.AssemblyInfo.cs
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\obj\Debug\net6.0\CryptoParserBot.RestApi.csproj.CoreCompileInputs.cache
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\obj\Debug\net6.0\CryptoParserBot.RestApi.csproj.CopyComplete
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\obj\Debug\net6.0\CryptoParserBot.RestApi.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\obj\Debug\net6.0\refint\CryptoParserBot.RestApi.dll
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\obj\Debug\net6.0\CryptoParserBot.RestApi.pdb
+Z:\C#-Projects\CryptoParserBot\src\CryptoParserBot.RestApi\obj\Debug\net6.0\ref\CryptoParserBot.RestApi.dll
