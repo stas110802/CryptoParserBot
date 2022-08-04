@@ -5,6 +5,11 @@ namespace CryptoParserBot.CryptoBot;
 
 public static class ConfigInitializer
 {
+    static ConfigInitializer()
+    {
+        PathHelper.CheckForPathExists(CofigsPath);
+    }
+    
     public static BotKeys GetClientConfig()
     {
         return GetConfig<BotKeys>(ClientPath);

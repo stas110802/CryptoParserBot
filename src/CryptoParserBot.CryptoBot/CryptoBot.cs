@@ -10,19 +10,17 @@ public sealed class CryptoBot
     private readonly IExchangeClient _client;
     private readonly BotLogger _botLogger;
     private readonly CurrencyInfo _currencyInfo;
-
+    
     public CryptoBot(IExchangeClient client)
     {
         _client = client;
-        _currencyInfo = ConfigInitializer.GetCurrencyConfig();
 
         _botLogger = new BotLogger
         {
             RecipientsEmails = new[]
             {
                 "baxtoban555308775@gmail.com",
-                "stas_novoseltsev@mail.ru"
-                //"Roman1199@mail.ru"
+                "Roman1199@mail.ru"
             },
             EmailLogger = new EmailLogger(ConfigInitializer.GetSmtpEmailConfig())
         };
@@ -113,6 +111,19 @@ public sealed class CryptoBot
         }
     }
 
+    public void Test() // TEST METHOD
+    {
+        var currency = "BTCUSDT";
+        var amount = 0.01m;
+        var currentPrice = _client.GetCurrencyPrice(currency);
+
+        var orderLog = new OrderLog(
+            options: _currencyInfo, sellPrice: currentPrice, amount: amount);
+
+        _botLogger.AddOrderInfoGlobalLog(orderLog);
+        LoadingBar(15, "sell coins");
+    }
+    
     private void WriteErrorLog(string message)
     {
         var errorLog = new ErrorLog(message);
