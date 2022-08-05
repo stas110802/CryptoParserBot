@@ -1,4 +1,6 @@
-﻿namespace CryptoParserBot.AdditionalToolLibrary;
+﻿using System.Text.RegularExpressions;
+
+namespace CryptoParserBot.AdditionalToolLibrary;
 
 public static class ConsoleHelper
 {
@@ -29,5 +31,25 @@ public static class ConsoleHelper
         }
 
         Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    public static void BeautifyWrite(string line, params int[] indices)
+    {
+        var matches = Regex.Matches(line, @"[\w\d_]+", RegexOptions.Singleline);
+
+        for (var i = 0; i < matches.Count; i++)
+        {
+            var isPrint = false;
+            foreach (var index in indices)
+            {
+                if (index != i) continue;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write($"{matches[i]} ");
+                isPrint = true;
+            }
+            if(isPrint) continue;
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write($"{matches[i]} ");
+        }
     }
 }

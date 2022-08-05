@@ -12,6 +12,7 @@ public static class PathHelper
     private static string LogsPath => $"{ProjectPath}\\logs\\";
     public static string OrderPath => $"{LogsPath}orders\\";
     public static string ErrorsPath => $"{LogsPath}errors\\";
+    public static string LaunchesPath => $"{LogsPath}launches\\";
     
     /// <summary>
     /// Create folders

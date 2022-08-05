@@ -47,5 +47,8 @@ var bot = new CryptoBot(client, new CurrencyInfo
     UpperPrice = upperLimit,
     BalanceLimit = balanceLimit
 });
+bot.TestStart();
 bot.TestSellCurrency();
 bot.TestError();
+
+//bot.StartBot();
