@@ -4,6 +4,7 @@ namespace CryptoParserBot.CryptoBot.Enums;
 
 public enum SubjectTheme
 {
-    [Description("ОШИБКА")]Error,
-    [Description("ПРОДАЖА")]Sell
+    [Description("Ошибка")] Error,
+    [Description("Продажа")] Sell,
+    [Description("Активация продажи")] StartSales
 }

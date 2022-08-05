@@ -83,7 +83,7 @@ public sealed class CryptoBot
                     var orderLog = new OrderLog(
                     options: _currencyInfo, sellPrice: currentPrice, amount: amount);
 
-                    _botLogger.AddOrderInfoGlobalLog(orderLog);
+                    _botLogger.AddLog(orderLog);
                     ConsoleHelper.LoadingBar(15, "sell coins");
                 }
                 else
@@ -99,7 +99,7 @@ public sealed class CryptoBot
         }
     }
 
-    public void Test() // TEST METHOD
+    public void TestSellCurrency() // TEST METHOD
     {
         var currency = "BTCUSDT";
         var amount = 0.01m;
@@ -108,14 +108,20 @@ public sealed class CryptoBot
         var orderLog = new OrderLog(
             options: _currencyInfo, sellPrice: currentPrice, amount: amount);
 
-        _botLogger.AddOrderInfoGlobalLog(orderLog);
-        ConsoleHelper.LoadingBar(15, "sell coins");
+        _botLogger.AddLog(orderLog);
+        ConsoleHelper.LoadingBar(10, "sell coins");
+    }
+
+    public void TestError()
+    {
+        var log = new ErrorLog("Тест ошибка!");
+        _botLogger.AddLog(log);
     }
     
     private void WriteErrorLog(string message)
     {
         var errorLog = new ErrorLog(message);
-        _botLogger.AddErrorLog(errorLog);
+        _botLogger.AddLog(errorLog);
         Console.WriteLine(errorLog);
     }
 
