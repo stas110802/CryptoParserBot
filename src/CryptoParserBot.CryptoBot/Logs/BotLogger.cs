@@ -1,4 +1,5 @@
 ﻿using CryptoParserBot.AdditionalToolLibrary;
+using CryptoParserBot.CryptoBot.Enums;
 using CryptoParserBot.CryptoBot.Models.Logs;
 
 namespace CryptoParserBot.CryptoBot.Logs;
@@ -7,42 +8,17 @@ public sealed class BotLogger
 {
     public BotLogger()
     {
-        JsonLogger = new JsonLogger();
-        
-        PathHelper.CheckForPathExists(LogsPath, OrderPath, CurrencyPath, ErrorsPath);
+        JsonWriter = new JsonWriter();
+        PathHelper.CheckForPathExists(LogsPath, OrderPath, ErrorsPath);
     }
-
-    private string LogsPath =>
-        Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..")) + "\\logs\\";
-
-    private string OrderFilePath => $"{LogsPath}orders\\{DateTime.Now:dd/MM/yyyy}.json";
-    private string CurrencyFilePath => $"{LogsPath}prices\\{DateTime.Now:dd/MM/yyyy}.json";
-    private string ErrorsFilePath => $"{LogsPath}errors\\{DateTime.Now:dd/MM/yyyy}.json";
     
-    private string OrderPath => $"{LogsPath}orders\\";
-    private string CurrencyPath => $"{LogsPath}prices\\";
-    private string ErrorsPath => $"{LogsPath}errors\\";
-    
-    public EmailLogger EmailLogger { get; init; }
-    public JsonLogger JsonLogger { get; init; }
-    public string [] RecipientsEmails { get; set; }
+    public SmtpSender SmtpSender { get; init; }
+    public JsonWriter JsonWriter { get; }
+    public string [] RecipientsEmails { get; init; }
 
-    public void AddOrderInfoGlobalLog(OrderLog value)
+    public void AddOrderInfoGlobalLog(OrderLog log)
     {
-        JsonLogger.LogInfoAt(OrderFilePath, value);
-
-        var emRes = EmailLogger.SendMailMessage("Akira-Bot", value.ToString(), RecipientsEmails);
-
-        if (emRes is false)
-        {
-            var mailErrorLog = new ErrorLog("Не удалось отправить сообщение на почту");
-            JsonLogger.LogInfoAt(ErrorsFilePath, mailErrorLog);
-        }
-    }
-
-    public void AddCurrencyInfoLog(CurrencyLog info)
-    {
-        JsonLogger.LogInfoAt(CurrencyFilePath, info);
+        AddLog(log, OrderFilePath, SubjectTheme.Sell, true);
     }
 
     /// <summary>
@@ -51,7 +27,7 @@ public sealed class BotLogger
     /// <param name="errorInfo"></param>
     public void AddErrorLog(ErrorLog errorInfo)
     {
-        JsonLogger.LogInfoAt(ErrorsFilePath, errorInfo);
+        AddLog(errorInfo, ErrorsFilePath);
     }
 
     /// <summary>
@@ -59,15 +35,33 @@ public sealed class BotLogger
     /// Important errors that need to be notified.
     /// </summary>
     /// <param name="errorInfo"></param>
-    public void AddErrorLogGlobal(ErrorLog errorInfo)
+    public void AddErrorLogGlobal(ErrorLog log)
     {
-        JsonLogger.LogInfoAt(ErrorsFilePath, errorInfo);
-        var emRes = EmailLogger.SendMailMessage("Akira-Bot", errorInfo.ToString(), RecipientsEmails);
+        AddLog(log, ErrorsFilePath, SubjectTheme.Error, true);
+    }
 
-        if (emRes is false)
-        {
-            var gmailErrorLog = new ErrorLog("Не удалось отправить сообщение на почту");
-            JsonLogger.LogInfoAt(ErrorsFilePath, gmailErrorLog);
-        }
+    private string LogsPath => $"{PathHelper.ProjectPath}\\logs\\";
+    private string OrderPath => $"{LogsPath}orders\\";
+    private string ErrorsPath => $"{LogsPath}errors\\";
+    private string OrderFilePath => $"{OrderPath}{DateTime.Now:dd/MM/yyyy}.json";
+    private string ErrorsFilePath => $"{ErrorsPath}{DateTime.Now:dd/MM/yyyy}.json";
+
+    private void AddLog<T>(T log, string filePath, SubjectTheme? subjectTheme = null, bool sendMailMessage = false)
+        where T : class
+    {
+        if (log == null) throw new ArgumentNullException(nameof(log));
+        
+        JsonWriter.LogInfoAt(filePath, log);
+        
+        if(sendMailMessage is false) return;
+        
+        var theme = subjectTheme?.ToDescription();
+        var emRes = SmtpSender.SendMailMessage(
+            $"Akira-Bot [{theme}]", log.ToString(), RecipientsEmails);
+
+        if (emRes) return;
+        
+        var mailErrorLog = new ErrorLog("Не удалось отправить сообщение на почту");
+        JsonWriter.LogInfoAt(ErrorsFilePath, mailErrorLog);
     }
 }

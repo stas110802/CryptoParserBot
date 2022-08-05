@@ -17,15 +17,20 @@ var sellCoin = Console.ReadLine()?.ToUpper();
 Console.Write("Какой коин покупаем: ");
 var buyCoin = Console.ReadLine()?.ToUpper();
 
-Console.Write($"Лимит цена({buyCoin}): ");
-var currencyRes = decimal.TryParse(
-    Console.ReadLine()?.Replace('.', ','), out var currencyLimit);
+Console.Write($"Нижняя цена({buyCoin}): ");
+var bottomRes = decimal.TryParse(
+    Console.ReadLine()?.Replace('.', ','), out var bottomLimit);
+
+Console.Write($"Верхняя цена({buyCoin}): ");
+var upperRes = decimal.TryParse(
+    Console.ReadLine()?.Replace('.', ','), out var upperLimit);
 
 Console.Write($"Минимальный баланс({sellCoin}): ");
 var balanceRes = decimal.TryParse(
     Console.ReadLine()?.Replace('.', ','), out var balanceLimit);
 
-if( currencyRes is false ||
+if( upperRes is false ||
+    bottomRes is false ||
     balanceRes is false || 
     IsNullOrEmpty(sellCoin) ||
     IsNullOrEmpty(buyCoin))
@@ -38,7 +43,8 @@ var bot = new CryptoBot(client, new CurrencyInfo
 {
     FirstCoin = sellCoin,
     SecondCoin = buyCoin,
-    PriceLimit = currencyLimit,
+    BottomPrice = bottomLimit,
+    UpperPrice = upperLimit,
     BalanceLimit = balanceLimit
 });
-bot.StartBot();
+bot.Test();

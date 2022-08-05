@@ -7,34 +7,27 @@ public static class ConfigInitializer
 {
     static ConfigInitializer()
     {
-        PathHelper.CheckForPathExists(CofigsPath);
+        PathHelper.CheckForPathExists(ConfigsPath);
     }
     
     public static BotKeys GetClientConfig()
     {
         return GetConfig<BotKeys>(ClientPath);
     }
-
-    public static CurrencyInfo GetCurrencyConfig()
+    
+    public static SmtpHost GetSmtpEmailConfig()
     {
-        return GetConfig<CurrencyInfo>(CurrencyPath);
+        return GetConfig<SmtpHost>(SmtpPath);
     }
 
-    public static BotEmail GetSmtpEmailConfig()
-    {
-        return GetConfig<BotEmail>(SmtpPath);
-    }
-
-    private static string CofigsPath => Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..")) + "\\configs\\";
-    private static string ClientPath => CofigsPath + "ClientInfo.json";
-    private static string CurrencyPath => CofigsPath + "CurrencyInfo.json";
-    private static string SmtpPath => CofigsPath + "SmtpEmailInfo.json";
-
+    private static string ConfigsPath => $"{PathHelper.ProjectPath}\\configs\\";
+    private static string ClientPath => $"{ConfigsPath}ClientInfo.json";
+    private static string SmtpPath => $"{ConfigsPath}SmtpEmailInfo.json";
+    
+    // mb delete this
     private static T GetConfig<T>(string path)
         where T : class
     {
-        var conf = JsonHelper.GetDeserializeObject<T>(path);
-
-        return conf;
+        return JsonHelper.GetDeserializeObject<T>(path);
     }
 }

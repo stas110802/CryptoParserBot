@@ -1,6 +1,6 @@
 ﻿namespace CryptoParserBot.CryptoBot.Models.Configs;
 
-public sealed class BotEmail
+public sealed class SmtpHost
 {
     public string Login { get; set; }
     public string Password { get; set; }

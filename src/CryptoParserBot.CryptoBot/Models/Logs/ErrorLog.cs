@@ -15,7 +15,8 @@ public sealed class ErrorLog
 
     public override string ToString()
     {
-        return $"Дата возникновения ошибки: {ErrorDate}\nОшибка: {Message}";
+        return $"Дата возникновения ошибки: {ErrorDate}" +
+               $"\nОшибка: {Message}";
     }
 }
 

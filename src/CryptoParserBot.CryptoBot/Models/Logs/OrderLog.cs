@@ -9,26 +9,23 @@ public sealed class OrderLog
     public OrderLog(CurrencyInfo options, decimal sellPrice, decimal amount)
     {
         OrderDate = DateTime.UtcNow;
-
-        FirstCoin = options.FirstCoin;
-        SecondCoin = options.SecondCoin;
-        LimitPrice = options.PriceLimit;
-
+        Info = options;
         SellPrice = sellPrice;
         Amount = amount;
     }
 
-    //[Required]
-    public string FirstCoin { get; set; }
-    public string SecondCoin { get; set; }
     public decimal SellPrice { get; set; }
-    public decimal LimitPrice { get; set; }
     public decimal Amount { get; set; }
+    public CurrencyInfo Info { get; set; }
     public DateTime OrderDate { get; set; }
 
     public override string ToString()
     {
-        return $"Продаем: {FirstCoin} за {SecondCoin}\nДата: {OrderDate}\nЛимит цена: {LimitPrice} {SecondCoin}\n" +
-               $"Цена продажи: {SellPrice} {SecondCoin}\nКоличество: {Amount} {FirstCoin}";
+        return $"Продаем: {Info.FirstCoin} за {Info.SecondCoin}\n" +
+               $"Дата: {OrderDate}\n" +
+               $"Верхняя цена: {Info.UpperPrice} {Info.SecondCoin}\n" +
+               $"Нижняя цена: {Info.BottomPrice} {Info.SecondCoin}\n" +
+               $"Цена продажи: {SellPrice} {Info.SecondCoin}\n" +
+               $"Количество: {Amount} {Info.FirstCoin}";
     }
 }

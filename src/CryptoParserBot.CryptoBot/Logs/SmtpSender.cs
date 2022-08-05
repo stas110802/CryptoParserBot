@@ -1,15 +1,14 @@
 ﻿using System.Net;
 using System.Net.Mail;
-using CryptoParserBot.CryptoBot.Models;
 using CryptoParserBot.CryptoBot.Models.Configs;
 
 namespace CryptoParserBot.CryptoBot.Logs;
 
-public sealed class EmailLogger
+public sealed class SmtpSender
 {
-    private readonly BotEmail _config;
+    private readonly SmtpHost _config;
 
-    public EmailLogger(BotEmail config)
+    public SmtpSender(SmtpHost config)
     {
         _config = config;
     }
@@ -34,7 +33,7 @@ public sealed class EmailLogger
         using var msg = new MailMessage(_config.Login, recipients[0], subject, content);
 
         // if we have > 1 recipients
-        for (int i = 1; i < recipients.Length; i++)
+        for (var i = 1; i < recipients.Length; i++)
             msg.To.Add(recipients[i]);
 
         // try to send a mail

@@ -1,4 +1,5 @@
-﻿using CryptoParserBot.CryptoBot.Logs;
+﻿using CryptoParserBot.AdditionalToolLibrary;
+using CryptoParserBot.CryptoBot.Logs;
 using CryptoParserBot.CryptoBot.Models.Configs;
 using CryptoParserBot.CryptoBot.Models.Logs;
 using CryptoParserBot.ExchangeClients.Interfaces;
@@ -10,26 +11,20 @@ public sealed class CryptoBot
     private readonly IExchangeClient _client;
     private readonly BotLogger _botLogger;
     private readonly CurrencyInfo _currencyInfo;
-    
-    public CryptoBot(IExchangeClient client)
+
+    public CryptoBot(IExchangeClient client, CurrencyInfo currencyInfo)
     {
         _client = client;
-
+        _currencyInfo = currencyInfo;
         _botLogger = new BotLogger
         {
             RecipientsEmails = new[]
             {
                 "baxtoban555308775@gmail.com",
-                "Roman1199@mail.ru"
+                //"Roman1199@mail.ru"
             },
-            EmailLogger = new EmailLogger(ConfigInitializer.GetSmtpEmailConfig())
+            SmtpSender = new SmtpSender(ConfigInitializer.GetSmtpEmailConfig())
         };
-    }
-
-    public CryptoBot(IExchangeClient client, CurrencyInfo currencyInfo) 
-        : this(client)
-    {
-        _currencyInfo = currencyInfo;
     }
 
     /// <summary>
@@ -40,26 +35,26 @@ public sealed class CryptoBot
     {
         Console.WriteLine("Бот начал свою работу");
         Thread.Sleep(2000);
-
+        
         var currency = _currencyInfo.FirstCoin + _currencyInfo.SecondCoin;
-
+        
         try
         {
             while (true)
             {
                 Console.Clear();
                 var currentPrice = _client.GetCurrencyPrice(currency);
-
-                // create currency info log
+                
                 var parseLog = new CurrencyLog(_currencyInfo, currentPrice);
                 Console.WriteLine(parseLog);
 
-                if (currentPrice <= _currencyInfo.PriceLimit)
+                if (currentPrice <= _currencyInfo.UpperPrice &&
+                    currentPrice >= _currencyInfo.BottomPrice)
                 {
-                    LoadingBar(10);
+                    ConsoleHelper.LoadingBar(10);
                     continue;
                 }
-
+                
                 // get account balance
                 var balances = _client
                     .GetAccountBalance()
@@ -74,24 +69,22 @@ public sealed class CryptoBot
 
                 if (balances.AvailableBalance < _currencyInfo.BalanceLimit)
                 {
-                    LoadingBar(10);
+                    ConsoleHelper.LoadingBar(10);
                     continue;
                 }
 
-                // amount coin on the balance
                 var amount = balances.AvailableBalance;
 
                 // create sell order
                 var orderResult = _client.CreateSellOrder(currency, amount);// MARKET ORDER
                 
                 if (orderResult)
-                { 
-                    // create order log
+                {
                     var orderLog = new OrderLog(
                     options: _currencyInfo, sellPrice: currentPrice, amount: amount);
-                    // write info to json
+
                     _botLogger.AddOrderInfoGlobalLog(orderLog);
-                    LoadingBar(15, "sell coins");
+                    ConsoleHelper.LoadingBar(15, "sell coins");
                 }
                 else
                 {
@@ -102,12 +95,7 @@ public sealed class CryptoBot
         }
         catch (Exception error)
         {
-            Console.Clear();
-            WriteErrorLog($"Сбой работы бота. {error.Message}");
-            // restart application after 30 sec
-            LoadingBar(30, "restart application", 1, 3);
-            Console.Clear();
-            StartBot();
+            RestartBot(error.Message);
         }
     }
 
@@ -121,7 +109,7 @@ public sealed class CryptoBot
             options: _currencyInfo, sellPrice: currentPrice, amount: amount);
 
         _botLogger.AddOrderInfoGlobalLog(orderLog);
-        LoadingBar(15, "sell coins");
+        ConsoleHelper.LoadingBar(15, "sell coins");
     }
     
     private void WriteErrorLog(string message)
@@ -131,31 +119,16 @@ public sealed class CryptoBot
         Console.WriteLine(errorLog);
     }
 
-    private static void LoadingBar(int sec, string text = "updating data", int x = 1, int y = 5)
+    private void RestartBot(string? error = null)
     {
-        const string border = "\u2551";
-        const int max = 20;
-        var thrSleep = sec * 1000 / max;
-        var empty = new string(' ', max);
+        Console.Clear();
         
-        Console.CursorVisible = false;
-        Console.SetCursorPosition(1, 1);
+        if(string.IsNullOrEmpty(error) is false)
+            WriteErrorLog($"Сбой работы бота. {error}");
         
-        for (var i = 0; i < max; i++)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;// bar color
-            Console.SetCursorPosition(x, y);
+        ConsoleHelper.LoadingBar(30, "restart application", 1, 3);
+        Console.Clear();
         
-            for (var j = 0; j < i; j++)
-            {
-                Console.Write(border);
-            }
-            
-            Console.Write(empty + (i + 1) + $" / {max} {text}...");
-            empty = empty.Remove(empty.Length - 1);
-            Thread.Sleep(thrSleep);
-        }
-
-        Console.ForegroundColor = ConsoleColor.White;
+        StartBot();
     }
 }

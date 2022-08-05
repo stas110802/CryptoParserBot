@@ -9,24 +9,20 @@ public sealed class CurrencyLog
     public CurrencyLog(CurrencyInfo options, decimal totalPrice)
     {
         ParsingDate = DateTime.UtcNow;
-
-        FirstCoin = options.FirstCoin;
-        SecondCoin = options.SecondCoin;
-        LimitPrice = options.PriceLimit;
-
+        Info = options;
         TotalPrice = totalPrice;
     }
-
-    //[Required]
-    public string FirstCoin { get; set; }
-    public string SecondCoin { get; set; }
+    
+    public CurrencyInfo Info { get; set; }
     public decimal TotalPrice { get; set; }
-    public decimal LimitPrice { get; set; }
     public DateTime ParsingDate { get; set; }
 
     public override string ToString()
     {
-        return $"Продаем: {FirstCoin} за {SecondCoin}\nДата: {ParsingDate}\nЛимит цена: {LimitPrice} {SecondCoin}\n" +
-               $"Текущая цена: {TotalPrice} {SecondCoin}";
+        return $"Продаем: {Info.FirstCoin} за {Info.SecondCoin}\n" +
+               $"Дата: {ParsingDate}\n" +
+               $"Верхняя цена: {Info.UpperPrice} {Info.SecondCoin}\n" +
+               $"Нижняя цена: {Info.BottomPrice} {Info.SecondCoin}\n" +
+               $"Текущая цена: {TotalPrice} {Info.SecondCoin}";
     }
 }
