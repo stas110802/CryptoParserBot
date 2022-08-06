@@ -23,7 +23,7 @@ public sealed class ErrorLog : ILog
     [DataMember]
     public DateTime ErrorDate { get; set; }
 
-    public string FilePath => $"{PathHelper.ErrorsPath}{DateTime.Now:dd/MM/yyyy}.json";
+    public string FilePath => $"{PathHelper.PathList.ErrorsPath}{DateTime.Now:dd/MM/yyyy}.json";
     public SubjectTheme? Theme { get; init; }
 
     public override string ToString()

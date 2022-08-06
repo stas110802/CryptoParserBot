@@ -4,15 +4,18 @@ public static class PathHelper
 {
     static PathHelper()
     {
-        CheckForPathExists(LogsPath, OrderPath, ErrorsPath, LaunchesPath);
+        PathList = new PathList();
+        
+        // Check what will be done first 
+        
+        //var paths = AttributesHelperExtension.GetStringValues(PathList);
+        //CheckForPathExists(paths);
     }
-    public static string ProjectPath =>
-        Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\.."));
-
-    private static string LogsPath => $"{ProjectPath}\\logs\\";
-    public static string OrderPath => $"{LogsPath}orders\\";
-    public static string ErrorsPath => $"{LogsPath}errors\\";
-    public static string LaunchesPath => $"{LogsPath}launches\\";
+    
+    /// <summary>
+    /// List of all need paths
+    /// </summary>
+    public static PathList PathList { get; }
     
     /// <summary>
     /// Create folders

@@ -1,7 +1,15 @@
-﻿using CryptoParserBot.CryptoBot;
+﻿using CryptoParserBot.AdditionalToolLibrary;
+using CryptoParserBot.CryptoBot;
 using CryptoParserBot.CryptoBot.Models.Configs;
 using CryptoParserBot.ExchangeClients.Clients;
 using static System.String;
+
+//= remove this ===
+var pl = new PathList();
+var paths = AttributesHelperExtension.GetStringValues(pl);
+PathHelper.CheckForPathExists(paths);
+// ================
+// add to PathHelper static ctor
 
 var cfg = ConfigInitializer.GetClientConfig();
 var client = new NiceHashClient(
@@ -53,3 +61,4 @@ var bot = new CryptoBot(client, new CurrencyInfo
     BalanceLimit = balanceLimit
 });
 bot.StartBot();
+

@@ -7,7 +7,7 @@ public static class ConfigInitializer
 {
     static ConfigInitializer()
     {
-        PathHelper.CheckForPathExists(ConfigsPath);
+        PathHelper.CheckForPathExists(PathHelper.PathList.ConfigsPath);
     }
     
     public static BotKeys GetClientConfig()
@@ -20,9 +20,8 @@ public static class ConfigInitializer
         return GetConfig<SmtpHost>(SmtpPath);
     }
 
-    private static string ConfigsPath => $"{PathHelper.ProjectPath}\\configs\\";
-    private static string ClientPath => $"{ConfigsPath}ClientInfo.json";
-    private static string SmtpPath => $"{ConfigsPath}SmtpEmailInfo.json";
+    private static string ClientPath => $"{PathHelper.PathList.ConfigsPath}ClientInfo.json";
+    private static string SmtpPath => $"{PathHelper.PathList.ConfigsPath}SmtpEmailInfo.json";
     
     // mb delete this
     private static T GetConfig<T>(string path)
