@@ -7,23 +7,27 @@ public static class ConfigInitializer
 {
     static ConfigInitializer()
     {
-        PathHelper.CheckForPathExists(PathHelper.PathList.ConfigsPath);
+        InitConfig();
     }
     
     public static BotKeys GetClientConfig()
     {
-        return GetConfig<BotKeys>(ClientPath);
+        return Config!.Client;
     }
     
     public static SmtpHost GetSmtpEmailConfig()
     {
-        return GetConfig<SmtpHost>(SmtpPath);
+        return Config!.Smtp;
     }
 
-    private static string ClientPath => $"{PathHelper.PathList.ConfigsPath}ClientInfo.json";
-    private static string SmtpPath => $"{PathHelper.PathList.ConfigsPath}SmtpEmailInfo.json";
+    public static void InitConfig()
+    {
+        Config = GetConfig<BotConfig>(CofnigPath);
+    }
     
-    // mb delete this
+    private static BotConfig? Config { get; set; }
+    private static string CofnigPath => $"{PathHelper.PathList.ConfigsPath}config.json";
+    
     private static T GetConfig<T>(string path)
         where T : class
     {
