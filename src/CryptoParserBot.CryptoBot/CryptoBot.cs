@@ -22,7 +22,7 @@ public sealed class CryptoBot
             RecipientsEmails = new[]
             {
                 "baxtoban555308775@gmail.com",
-                //"Roman1199@mail.ru"
+                "Roman1199@mail.ru"
             },
             SmtpSender = new SmtpSender(ConfigInitializer.GetSmtpEmailConfig())
         };
