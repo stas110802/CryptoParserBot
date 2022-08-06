@@ -15,7 +15,7 @@ public sealed class BotLogger
     public SmtpSender SmtpSender { get; init; }
     public JsonWriter JsonWriter { get; }
     public string [] RecipientsEmails { get; init; }
-
+    
     public void AddLog<T>(T log)
         where T : ILog
     {

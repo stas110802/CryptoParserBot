@@ -20,13 +20,18 @@ public static class ConfigInitializer
         return Config!.Smtp;
     }
 
+    public static string[] GetRecipientMails()
+    {
+        return Config!.Recipients.ToArray();
+    }
+
     public static void InitConfig()
     {
-        Config = GetConfig<BotConfig>(CofnigPath);
+        Config = GetConfig<BotConfig>(ConfigPath);
     }
     
     private static BotConfig? Config { get; set; }
-    private static string CofnigPath => $"{PathHelper.PathList.ConfigsPath}config.json";
+    private static string ConfigPath => $"{PathHelper.PathList.ConfigsPath}config.json";
     
     private static T GetConfig<T>(string path)
         where T : class

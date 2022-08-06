@@ -12,18 +12,14 @@ public sealed class CryptoBot
     private readonly IExchangeClient _client;
     private readonly BotLogger _botLogger;
     private readonly CurrencyInfo _currencyInfo;
-
+    
     public CryptoBot(IExchangeClient client, CurrencyInfo currencyInfo)
     {
         _client = client;
         _currencyInfo = currencyInfo;
         _botLogger = new BotLogger
         {
-            RecipientsEmails = new[]
-            {
-                "baxtoban555308775@gmail.com",
-                "Roman1199@mail.ru"
-            },
+            RecipientsEmails = ConfigInitializer.GetRecipientMails(),
             SmtpSender = new SmtpSender(ConfigInitializer.GetSmtpEmailConfig())
         };
     }
@@ -116,7 +112,7 @@ public sealed class CryptoBot
         _botLogger.AddLog(errorLog);
         Console.WriteLine(errorLog);
     }
-
+    
     private void RestartBot(string? error = null)
     {
         Console.Clear();
