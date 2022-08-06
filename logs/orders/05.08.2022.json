@@ -1,0 +1,26 @@
+[
+  {
+    "SellPrice": 22907.79,
+    "Amount": 0.01,
+    "Info": {
+      "FirstCoin": "BTC",
+      "SecondCoin": "USDT",
+      "UpperPrice": 20000.0,
+      "BottomPrice": 25000.0,
+      "BalanceLimit": 0.001
+    },
+    "OrderDate": "2022-08-05T19:34:19.4668052Z"
+  },
+  {
+    "SellPrice": 22940.26,
+    "Amount": 0.01,
+    "Info": {
+      "FirstCoin": "BTC",
+      "SecondCoin": "USDT",
+      "UpperPrice": 25000.0,
+      "BottomPrice": 20000.0,
+      "BalanceLimit": 0.01
+    },
+    "OrderDate": "2022-08-05T19:42:17.0085183Z"
+  }
+]

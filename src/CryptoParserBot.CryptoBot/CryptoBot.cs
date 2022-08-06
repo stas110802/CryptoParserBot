@@ -95,35 +95,7 @@ public sealed class CryptoBot
             RestartBot(error.Message);
         }
     }
-
-    public void TestSellCurrency()// test DELETE
-    {
-        var currency = "BTCUSDT";
-        var amount = 0.016542m;
-        var currentPrice = _client.GetCurrencyPrice(currency);
-
-        var orderLog = new OrderLog(
-            options: _currencyInfo, sellPrice: currentPrice, amount: amount);
-
-        _botLogger.AddLog(orderLog);
-        ConsoleHelper.LoadingBar(10, "sell coins");
-    }
-
-    public void TestError()// test DELETE
-    {
-        var log = new ErrorLog("Тест ошибка!");
-        _botLogger.AddLog(log);
-    }
-
-    public void TestStart()// test DELETE
-    {
-        var currency = "BTCUSDT";
-        var price = _client.GetCurrencyPrice(currency);
-        var balance = 0.016542m;
-        var log = new CurrencyLog(_currencyInfo, price, balance);
-        _botLogger.AddLog(log);
-    }
-
+    
     private CurrencyLog GetTotalCurrencyInfo(string currency, CurrencyBalance? balance = null)
     {
         Console.Clear();

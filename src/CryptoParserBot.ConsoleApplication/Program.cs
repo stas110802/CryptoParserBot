@@ -4,7 +4,6 @@ using CryptoParserBot.ExchangeClients.Clients;
 using static System.String;
 
 var cfg = ConfigInitializer.GetClientConfig();
-
 var client = new NiceHashClient(
     key: cfg.Key, // public key
     secretKey: cfg.SecretKey, // secret key
@@ -47,8 +46,4 @@ var bot = new CryptoBot(client, new CurrencyInfo
     UpperPrice = upperLimit,
     BalanceLimit = balanceLimit
 });
-bot.TestStart();
-bot.TestSellCurrency();
-bot.TestError();
-
-//bot.StartBot();
+bot.StartBot();

@@ -1,0 +1,14 @@
+[
+  {
+    "Message": "Тест ошибка!",
+    "ErrorDate": "2022-08-05T19:23:02.5632087Z"
+  },
+  {
+    "Message": "Тест ошибка!",
+    "ErrorDate": "2022-08-05T19:42:28.4164227Z"
+  },
+  {
+    "Message": "Сбой работы бота. [SelectToken ERROR] : Unable to deserialize response and get currencies",
+    "ErrorDate": "2022-08-05T20:35:17.6489373Z"
+  }
+]
