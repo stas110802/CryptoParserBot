@@ -60,7 +60,7 @@ public sealed class CryptoBot
                 }
 
                 // if the balance is not active, then do not create an order
-                if (balance!.IsActive is false)
+                if (balance.IsActive is false)
                 {
                     WriteErrorLog("Заброкированнный баланс!");
                     continue;
