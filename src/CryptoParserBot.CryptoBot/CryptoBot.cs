@@ -34,8 +34,10 @@ public sealed class CryptoBot
     /// </summary>
     public void StartBot()
     {
+        Console.Clear();
         ConsoleHelper.BeautifyWrite("Запуск бота", 1);
         var currency = _currencyInfo.FirstCoin + _currencyInfo.SecondCoin;
+        Thread.Sleep(2000);
         
         try
         {
@@ -58,7 +60,7 @@ public sealed class CryptoBot
                     ConsoleHelper.LoadingBar(10);
                     continue;
                 }
-
+                
                 // if the balance is not active, then do not create an order
                 if (balance!.IsActive is false)
                 {

@@ -4,7 +4,7 @@ public static class PathHelper
 {
     static PathHelper()
     {
-        CheckForPathExists(LogsPath, OrderPath, ErrorsPath);
+        CheckForPathExists(LogsPath, OrderPath, ErrorsPath, LaunchesPath);
     }
     public static string ProjectPath =>
         Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\.."));

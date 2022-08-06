@@ -38,6 +38,12 @@ if( upperRes is false ||
     return;
 }
 
+Console.WriteLine("Вы уверены, что хотите начать?");
+Console.Write("Y\\N: ");
+var result = Console.ReadLine()?.ToUpper();
+
+if (result != "Y") return;
+
 var bot = new CryptoBot(client, new CurrencyInfo
 {
     FirstCoin = sellCoin,

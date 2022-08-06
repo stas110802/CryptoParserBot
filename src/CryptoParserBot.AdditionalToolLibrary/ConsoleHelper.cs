@@ -7,7 +7,7 @@ public static class ConsoleHelper
     private const string Border = "\u2551";
     private const int Max = 20;
 
-    public static void LoadingBar(int sec, string text = "updating data", int x = 1, int y = 5)
+    public static void LoadingBar(int sec, string text = "updating data", int x = 1, int y = 7)
     {
         var thrSleep = sec * 1000 / Max;
         var empty = new string(' ', Max);
@@ -47,8 +47,8 @@ public static class ConsoleHelper
                 Console.Write($"{matches[i]} ");
                 isPrint = true;
             }
-            if(isPrint) continue;
             Console.ForegroundColor = ConsoleColor.Gray;
+            if(isPrint) continue;
             Console.Write($"{matches[i]} ");
         }
     }
