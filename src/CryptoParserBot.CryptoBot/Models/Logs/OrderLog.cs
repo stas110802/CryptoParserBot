@@ -36,8 +36,8 @@ public sealed class OrderLog : ILog
     {
         return $"Продаем: {Info.FirstCoin} за {Info.SecondCoin}\n" +
                $"Дата: {OrderDate}\n" +
-               $"Верхняя цена: {Info.UpperPrice} {Info.SecondCoin}\n" +
-               $"Нижняя цена: {Info.BottomPrice} {Info.SecondCoin}\n" +
+               $"Рекомендуемая цена: {Info.UpperPrice} {Info.SecondCoin}\n" +
+               $"Критическая цена: {Info.BottomPrice} {Info.SecondCoin}\n" +
                $"Цена продажи: {SellPrice} {Info.SecondCoin}\n" +
                $"Количество: {Amount} {Info.FirstCoin}";
     }

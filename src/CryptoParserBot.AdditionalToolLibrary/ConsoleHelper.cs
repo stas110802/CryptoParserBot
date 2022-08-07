@@ -52,4 +52,16 @@ public static class ConsoleHelper
             Console.Write($"{matches[i]} ");
         }
     }
+
+    public static void Write(string message, ConsoleColor color)
+    {
+        Console.ForegroundColor = color;
+        Console.Write(message);
+    }
+    
+    public static void WriteLine(string message, ConsoleColor color)
+    {
+        Console.ForegroundColor = color;
+        Console.WriteLine(message);
+    }
 }

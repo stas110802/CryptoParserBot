@@ -40,8 +40,8 @@ public sealed class CurrencyLog : ILog
     {
         return $"Продаем: {Info.FirstCoin} за {Info.SecondCoin}\n" +
                $"Дата: {ParsingDate}\n" +
-               $"Верхняя цена: {Info.UpperPrice} {Info.SecondCoin}\n" +
-               $"Нижняя цена: {Info.BottomPrice} {Info.SecondCoin}\n" +
+               $"Рекомендуемая цена: {Info.UpperPrice} {Info.SecondCoin}\n" +
+               $"Критическая цена: {Info.BottomPrice} {Info.SecondCoin}\n" +
                $"Текущий курс: {TotalPrice} {Info.SecondCoin}\n" +
                $"Лимит баланса: {Info.BalanceLimit} {Info.FirstCoin}\n" +
                $"Баланс: {AvailableBalance} {Info.FirstCoin}";
