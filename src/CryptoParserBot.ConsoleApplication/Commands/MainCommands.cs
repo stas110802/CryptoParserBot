@@ -1,8 +1,6 @@
 ﻿using CryptoParserBot.AdditionalToolLibrary;
 using CryptoParserBot.ConsoleApplication.Attributes;
-using CryptoParserBot.CryptoBot;
 using CryptoParserBot.CryptoBot.Models.Configs;
-using CryptoParserBot.ExchangeClients.Clients;
 using CryptoParserBot.ExchangeClients.Interfaces;
 using static System.String;
 
@@ -12,13 +10,16 @@ public sealed class MainCommands
 {
     private CryptoBot.CryptoBot? _bot;
     private IExchangeClient? _client;
-    private Dictionary<ConsoleKey, Func<IExchangeClient>> _clientCommands; 
+    private readonly Dictionary<ConsoleKey, Func<IExchangeClient>> _clientCommands;
+    private readonly Dictionary<ConsoleKey, Action> _configCommands;
     
     public MainCommands()
     {
-        var cfg = ConfigInitializer.GetClientConfig();
-        var cl = new ClientCommands(cfg);// think [GC]
+        var cl = new ClientCommands();// think [GC]
+        var cf = new ConfigCommands();// think [GC]
+        
         _clientCommands = CommandHelper.GetConsoleCommands<IExchangeClient>(cl);
+        _configCommands = CommandHelper.GetConsoleCommands(cf, typeof(ConfigCommands));
     }
     
     public MainCommands(IExchangeClient? client, CryptoBot.CryptoBot? bot)
@@ -122,5 +123,41 @@ public sealed class MainCommands
         
         Thread.Sleep(2500);
         Console.Clear();
+    }
+    
+    [ConsoleCommand(ConsoleKey.D4)]
+    public void EditConfig()
+    {
+        Console.Clear();
+        PrintCommands();
+        
+        var key = ConsoleKey.Delete;
+        while (key != ConsoleKey.Q)
+        {
+            key = Console.ReadKey(true).Key;
+            var action = _configCommands.ContainsKey(key) ? _configCommands[key] : null;
+            if (action == null) continue;
+            
+            action.Invoke();
+            PrintCommands();
+        }
+        
+        Thread.Sleep(2500);
+        Console.Clear();
+    }
+
+    private void PrintCommands()
+    {
+        ConsoleHelper.Write("[1]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - create new config", ConsoleColor.Gray);
+        
+        ConsoleHelper.Write("[2]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - update client keys", ConsoleColor.Gray);
+        
+        ConsoleHelper.Write("[3]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - update SMTP settings", ConsoleColor.Gray);
+        
+        ConsoleHelper.Write("[4]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - update recipient mail", ConsoleColor.Gray);
     }
 }

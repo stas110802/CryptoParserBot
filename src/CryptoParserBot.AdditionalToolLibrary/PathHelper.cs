@@ -27,7 +27,7 @@ public static class PathHelper
         {
             if (Directory.Exists(path)) continue;
 
-            Directory.CreateDirectory(path);
+            var i = Directory.CreateDirectory(path);
         }
     }
     

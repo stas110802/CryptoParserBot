@@ -32,4 +32,5 @@ public sealed class JsonWriter
         jsonData = JsonConvert.SerializeObject(logList, Formatting.Indented);
         File.WriteAllText(filePath, jsonData);
     }
+
 }

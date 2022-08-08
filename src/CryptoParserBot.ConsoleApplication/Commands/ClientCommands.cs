@@ -1,4 +1,5 @@
 ﻿using CryptoParserBot.ConsoleApplication.Attributes;
+using CryptoParserBot.CryptoBot;
 using CryptoParserBot.CryptoBot.Models.Configs;
 using CryptoParserBot.ExchangeClients.Clients;
 
@@ -6,20 +7,22 @@ namespace CryptoParserBot.ConsoleApplication.Commands;
 
 public sealed class ClientCommands
 {
-    private readonly BotKeys _cfg;
-    
-    public ClientCommands(BotKeys cfg)
-    {
-        _cfg = cfg;
-    }
-    
     [ConsoleCommand(ConsoleKey.D1)]
-    public NiceHashClient CreateClientCommand()
+    public NiceHashClient? CreateClientCommand()
     {
+        var cfg = ConfigInitializer.GetClientConfig();
+        
+        if (cfg == null)
+        {
+            Console.WriteLine("Конфиг пуст. Сначала заполните его.");
+            Thread.Sleep(2500);
+            return null;
+        }
+        
         var client = new NiceHashClient( 
-            key: _cfg.Key, 
-            secretKey: _cfg.SecretKey, 
-            organizationId: _cfg.OrgID 
+            key: cfg.Key, 
+            secretKey: cfg.SecretKey, 
+            organizationId: cfg.OrgID 
         );
         Console.WriteLine("Nice Hash client created.");
 

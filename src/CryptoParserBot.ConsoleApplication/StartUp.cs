@@ -1,22 +1,16 @@
 ﻿using CryptoParserBot.AdditionalToolLibrary;
 using CryptoParserBot.ConsoleApplication.Commands;
-using CryptoParserBot.CryptoBot;
-using CryptoParserBot.CryptoBot.Models.Configs;
-using CryptoParserBot.ExchangeClients.Clients;
-using CryptoParserBot.ExchangeClients.Interfaces;
-using static System.String;
 
 namespace CryptoParserBot.ConsoleApplication;
 
 public sealed class StartUp
 {
-    private MainCommands _commands;
-    private Dictionary<ConsoleKey, Action> _mainCommands;
+    private readonly Dictionary<ConsoleKey, Action> _mainCommands;
     
     public StartUp()
     {
-        _commands = new MainCommands();
-        _mainCommands = CommandHelper.GetConsoleCommands(_commands);
+        var commands = new MainCommands();
+        _mainCommands = CommandHelper.GetConsoleCommands(commands, typeof(MainCommands));
     }
     
     public void PrintStartUpMessage()
@@ -31,15 +25,18 @@ public sealed class StartUp
     public void PrintCommands()
     {
         ConsoleHelper.WriteLine("Commands: ", ConsoleColor.Green);
-        // start bot
+        
         ConsoleHelper.Write("[1]", ConsoleColor.Red);
         ConsoleHelper.WriteLine(" - start bot", ConsoleColor.Gray);
-        // orders
+        
         ConsoleHelper.Write("[2]", ConsoleColor.Red);
         ConsoleHelper.WriteLine(" - create sell order", ConsoleColor.Gray);
-        // orders
+       
         ConsoleHelper.Write("[3]", ConsoleColor.Red);
         ConsoleHelper.WriteLine(" - create client", ConsoleColor.Gray);
+        
+        ConsoleHelper.Write("[4]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - create/update config", ConsoleColor.Gray);
         
         Thread.Sleep(2000);
     }
@@ -52,11 +49,10 @@ public sealed class StartUp
         {
             key = Console.ReadKey(true).Key;
             var action = _mainCommands.ContainsKey(key) ? _mainCommands[key] : null;
-            if (action != null)
-            {
-                action.Invoke();
-                PrintCommands();
-            }
+            if (action == null) continue;
+            
+            action.Invoke();
+            PrintCommands();
         }
     }
     

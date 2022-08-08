@@ -4,10 +4,10 @@ namespace CryptoParserBot.ConsoleApplication.Commands;
 
 public static class CommandHelper
 {
-    public static Dictionary<ConsoleKey, Action> GetConsoleCommands(object target)
+    public static Dictionary<ConsoleKey, Action> GetConsoleCommands(object target, Type type)
     {
         var result = new Dictionary<ConsoleKey, Action>();
-        var methods = typeof(MainCommands).GetMethods();
+        var methods = type.GetMethods();
         
         foreach (var method in methods)
         {
