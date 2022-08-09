@@ -1,4 +1,5 @@
-﻿using CryptoParserBot.ConsoleApplication.Attributes;
+﻿using CryptoParserBot.AdditionalToolLibrary;
+using CryptoParserBot.ConsoleApplication.Attributes;
 using CryptoParserBot.CryptoBot;
 using CryptoParserBot.CryptoBot.Models.Configs;
 using static System.String;
@@ -45,6 +46,24 @@ public sealed class ConfigCommands
         ConfigInitializer.UpdateRecipientInfo(GetRecipients());
         PrintSuccessMessage();
     }
+    
+    public static void PrintCommands()
+    {
+        ConsoleHelper.Write("[Q]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - вернуться назад", ConsoleColor.Gray);
+        
+        ConsoleHelper.Write("[1]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - создать новый конфиг", ConsoleColor.Gray);
+        
+        ConsoleHelper.Write("[2]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - изменить ключи API", ConsoleColor.Gray);
+        
+        ConsoleHelper.Write("[3]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - изменить SMTP настройки", ConsoleColor.Gray);
+        
+        ConsoleHelper.Write("[4]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - изменить почту для получения уведомлений", ConsoleColor.Gray);
+    }
 
     private BotKeys GetClient()
     {
@@ -63,7 +82,7 @@ public sealed class ConfigCommands
 
     private SmtpHost GetSmtp()
     {
-        Console.WriteLine("SMTP settings");
+        Console.WriteLine("SMTP настройки");
         ReadData("Login: ", out var login);
         ReadData("Password: ", out var password);
         ReadData("Host: ", out var host);

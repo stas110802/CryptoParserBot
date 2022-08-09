@@ -1,6 +1,6 @@
-﻿using CryptoParserBot.ConsoleApplication.Attributes;
+﻿using CryptoParserBot.AdditionalToolLibrary;
+using CryptoParserBot.ConsoleApplication.Attributes;
 using CryptoParserBot.CryptoBot;
-using CryptoParserBot.CryptoBot.Models.Configs;
 using CryptoParserBot.ExchangeClients.Clients;
 
 namespace CryptoParserBot.ConsoleApplication.Commands;
@@ -24,8 +24,10 @@ public sealed class ClientCommands
             secretKey: cfg.SecretKey, 
             organizationId: cfg.OrgID 
         );
-        Console.WriteLine("Nice Hash client created.");
-
+        Console.Write("Биржа ");
+        ConsoleHelper.Write("Nice Hash ", ConsoleColor.Green);
+        Console.WriteLine("выбрана.");
+        
         return client;
     }
 }

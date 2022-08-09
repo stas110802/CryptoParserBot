@@ -57,11 +57,13 @@ public static class ConsoleHelper
     {
         Console.ForegroundColor = color;
         Console.Write(message);
+        Console.ForegroundColor = default;
     }
     
     public static void WriteLine(string message, ConsoleColor color)
     {
         Console.ForegroundColor = color;
         Console.WriteLine(message);
+        Console.ForegroundColor = default;
     }
 }

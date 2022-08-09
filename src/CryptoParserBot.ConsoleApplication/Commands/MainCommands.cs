@@ -12,13 +12,15 @@ public sealed class MainCommands
     private IExchangeClient? _client;
     private readonly Dictionary<ConsoleKey, Func<IExchangeClient>> _clientCommands;
     private readonly Dictionary<ConsoleKey, Action> _configCommands;
-    
+    private Dictionary<ConsoleKey, Action> _orderCommands;
+
     public MainCommands()
     {
         var cl = new ClientCommands();// think [GC]
         var cf = new ConfigCommands();// think [GC]
+       
         
-        _clientCommands = CommandHelper.GetConsoleCommands<IExchangeClient>(cl);
+        _clientCommands = CommandHelper.GetConsoleCommands<IExchangeClient>(cl, typeof(ClientCommands));
         _configCommands = CommandHelper.GetConsoleCommands(cf, typeof(ConfigCommands));
     }
     
@@ -28,8 +30,7 @@ public sealed class MainCommands
         _bot = bot;
     }
     
-    [ConsoleCommand(ConsoleKey.D1)]
-    public void StartBotCommand()
+    public void StartBot()
     {
         Console.Clear();
         if (_bot != null)
@@ -43,8 +44,8 @@ public sealed class MainCommands
         }
     }
 
-    [ConsoleCommand(ConsoleKey.D2)]
-    public void CreateSellOrderCommand()
+    [ConsoleCommand(ConsoleKey.D1)]
+    public void StartBotCommand()
     {
         Console.Clear();
         if (_client == null)
@@ -83,7 +84,7 @@ public sealed class MainCommands
             return;
         }
 
-        Console.WriteLine("Вы уверены, что хотите добавить данный ордер?");
+        Console.WriteLine("Вы уверены, что хотите запустить бота с данными параметрами?");
         Console.Write("Y\\N: ");
         var result = Console.ReadLine()?.ToUpper();
 
@@ -98,17 +99,22 @@ public sealed class MainCommands
             BalanceLimit = balanceLimit
         });
         Console.Clear();
+        StartBot();
     }
 
-    [ConsoleCommand(ConsoleKey.D3)]
+    [ConsoleCommand(ConsoleKey.D2)]
     public void CreateClientCommand()
     {
         Console.Clear();
+        
+        ConsoleHelper.Write("[Q]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - вернуться назад", ConsoleColor.Gray);
+        
         ConsoleHelper.Write("[1]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - Nice Hash client", ConsoleColor.Gray);
+        ConsoleHelper.WriteLine(" - Nice Hash", ConsoleColor.Gray);
         
         ConsoleHelper.Write("[2]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - Binance client", ConsoleColor.Gray);
+        ConsoleHelper.WriteLine(" - Binance", ConsoleColor.Gray);
         
         var key = ConsoleKey.Delete;
         while (key != ConsoleKey.Q)
@@ -125,11 +131,11 @@ public sealed class MainCommands
         Console.Clear();
     }
     
-    [ConsoleCommand(ConsoleKey.D4)]
+    [ConsoleCommand(ConsoleKey.D3)]
     public void EditConfig()
     {
         Console.Clear();
-        PrintCommands();
+        ConfigCommands.PrintCommands();
         
         var key = ConsoleKey.Delete;
         while (key != ConsoleKey.Q)
@@ -139,25 +145,76 @@ public sealed class MainCommands
             if (action == null) continue;
             
             action.Invoke();
-            PrintCommands();
+            ConfigCommands.PrintCommands();
         }
         
-        Thread.Sleep(2500);
         Console.Clear();
     }
 
-    private void PrintCommands()
+    [ConsoleCommand(ConsoleKey.D4)]
+    public void PrintAccountBalanceCommand()
     {
-        ConsoleHelper.Write("[1]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - create new config", ConsoleColor.Gray);
+        if (_client == null)
+        {
+            Console.WriteLine("Сначала выберите биржу(2 команда).");
+            Thread.Sleep(2000);
+            Console.Clear();
+            return;
+        }
+
+        Console.Clear();
+        ConsoleHelper.WriteLine("Активы аккаунта:", ConsoleColor.Green);
+        var balance = _client.GetAccountBalance();
+        balance.ForEach(x =>
+            Console.WriteLine($"{x.Currency} = {x.AvailableBalance}"));
         
-        ConsoleHelper.Write("[2]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - update client keys", ConsoleColor.Gray);
+        Console.WriteLine("Нажмите любую клавишу, чтобы выйти");
+        Console.ReadKey(true);
+        Console.Clear();
+    }
+
+    [ConsoleCommand(ConsoleKey.D5)]
+    public void CreateSellOrderCommand()
+    {
+        if (_client == null)
+        {
+            Console.WriteLine("[ERROR] Сначала выберите биржу");
+            Thread.Sleep(2000);
+            Console.Clear();// вывести эти 3 строчки в метод!
+            return;
+        }
         
-        ConsoleHelper.Write("[3]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - update SMTP settings", ConsoleColor.Gray);
+        Console.Clear();
+        OrderCommands.PrintCommands();
         
-        ConsoleHelper.Write("[4]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - update recipient mail", ConsoleColor.Gray);
+        _orderCommands = CommandHelper.GetConsoleCommands(
+            new OrderCommands(_client), typeof(OrderCommands));
+        
+        var key = ConsoleKey.NoName;
+        while (key != ConsoleKey.Q)
+        {
+            key = Console.ReadKey(true).Key;
+            var action = _orderCommands.ContainsKey(key) ? _orderCommands[key] : null;
+            action?.Invoke();
+            
+            OrderCommands.PrintCommands();
+        }
+        
+        Console.Clear();
+    }
+
+    [ConsoleCommand(ConsoleKey.D6)]
+    public void CancelAllSellOrdersCommand()
+    {
+        
+    }
+    
+    [ConsoleCommand(ConsoleKey.D7)]
+    public void PrintAppInfoCommand()
+    {
+        Console.Clear();
+        Console.WriteLine("Akira Bot - крипто-торговый бот");
+        Console.ReadKey(true);
+        Console.Clear();
     }
 }

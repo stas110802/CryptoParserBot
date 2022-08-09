@@ -5,8 +5,3 @@ startUp.CheckFoldersExists();
 startUp.PrintStartUpMessage();
 startUp.PrintCommands();
 startUp.ReadCommands();
-
-
-
-
-

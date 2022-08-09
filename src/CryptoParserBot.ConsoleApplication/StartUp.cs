@@ -24,27 +24,38 @@ public sealed class StartUp
     
     public void PrintCommands()
     {
-        ConsoleHelper.WriteLine("Commands: ", ConsoleColor.Green);
+        ConsoleHelper.WriteLine("Команды: ", ConsoleColor.Green);
+        
+        ConsoleHelper.Write("[Q]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - выход", ConsoleColor.Gray);
         
         ConsoleHelper.Write("[1]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - start bot", ConsoleColor.Gray);
-        
-        ConsoleHelper.Write("[2]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - create sell order", ConsoleColor.Gray);
+        ConsoleHelper.WriteLine(" - работа с ботом", ConsoleColor.Gray);
        
+        ConsoleHelper.Write("[2]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - выбрать биржу", ConsoleColor.Gray);
+        
         ConsoleHelper.Write("[3]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - create client", ConsoleColor.Gray);
+        ConsoleHelper.WriteLine(" - создать/обновить конфиг", ConsoleColor.Gray);
         
         ConsoleHelper.Write("[4]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - create/update config", ConsoleColor.Gray);
+        ConsoleHelper.WriteLine(" - баланс аккаунта", ConsoleColor.Gray);
         
-        Thread.Sleep(2000);
+        ConsoleHelper.Write("[5]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - создать ордер на продажу", ConsoleColor.Gray);
+        
+        ConsoleHelper.Write("[6]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - отменить все ордеры на продажу", ConsoleColor.Gray);
+        
+        ConsoleHelper.Write("[7]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - информация о приложении", ConsoleColor.Gray);
+        
+        //Thread.Sleep(2000);
     }
 
     public void ReadCommands()
     {
         var key = ConsoleKey.Delete;
-        
         while (key != ConsoleKey.Q)
         {
             key = Console.ReadKey(true).Key;

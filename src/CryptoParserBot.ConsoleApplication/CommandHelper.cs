@@ -1,6 +1,7 @@
 ﻿using CryptoParserBot.ConsoleApplication.Attributes;
+using CryptoParserBot.ConsoleApplication.Commands;
 
-namespace CryptoParserBot.ConsoleApplication.Commands;
+namespace CryptoParserBot.ConsoleApplication;
 
 public static class CommandHelper
 {
@@ -20,10 +21,10 @@ public static class CommandHelper
         return result;
     }
     
-    public static Dictionary<ConsoleKey, Func<T>> GetConsoleCommands<T>(object target)
+    public static Dictionary<ConsoleKey, Func<T>> GetConsoleCommands<T>(object target, Type type)
     {
         var result = new Dictionary<ConsoleKey, Func<T>>();
-        var methods = typeof(ClientCommands).GetMethods();
+        var methods = type.GetMethods();
         
         foreach (var method in methods)
         {

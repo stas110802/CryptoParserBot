@@ -72,9 +72,11 @@ namespace CryptoParserBot.ExchangeClients.Clients
             {
                 throw new JsonException("[SelectToken ERROR] : Unable to deserialize response and get currencies");
             }
-
-            var result = JsonConvert.DeserializeObject<List<CurrencyBalance>>(currencies.ToString());
-
+            
+            var result = JsonConvert.DeserializeObject<List<CurrencyBalance>>(currencies.ToString())
+                ?.FindAll(x => x.AvailableBalance > 0);
+            result ??= new List<CurrencyBalance>();
+            
             return result;
         }
 
