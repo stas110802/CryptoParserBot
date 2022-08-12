@@ -22,37 +22,7 @@ public sealed class StartUp
         Console.Clear();
     }
     
-    public void PrintCommands()
-    {
-        ConsoleHelper.WriteLine("Команды: ", ConsoleColor.Green);
-        
-        ConsoleHelper.Write("[Q]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - выход", ConsoleColor.Gray);
-        
-        ConsoleHelper.Write("[1]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - работа с ботом", ConsoleColor.Gray);
-       
-        ConsoleHelper.Write("[2]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - выбрать биржу", ConsoleColor.Gray);
-        
-        ConsoleHelper.Write("[3]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - создать/обновить конфиг", ConsoleColor.Gray);
-        
-        ConsoleHelper.Write("[4]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - баланс аккаунта", ConsoleColor.Gray);
-        
-        ConsoleHelper.Write("[5]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - создать ордер на продажу", ConsoleColor.Gray);
-        
-        ConsoleHelper.Write("[6]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - отменить все ордеры на продажу", ConsoleColor.Gray);
-        
-        ConsoleHelper.Write("[7]", ConsoleColor.Red);
-        ConsoleHelper.WriteLine(" - информация о приложении", ConsoleColor.Gray);
-        
-        //Thread.Sleep(2000);
-    }
-
+    
     public void ReadCommands()
     {
         var key = ConsoleKey.Delete;
@@ -63,7 +33,7 @@ public sealed class StartUp
             if (action == null) continue;
             
             action.Invoke();
-            PrintCommands();
+            MainCommands.PrintCommands();
         }
     }
     
