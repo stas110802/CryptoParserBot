@@ -4,19 +4,19 @@ using CryptoParserBot.ExchangeClients.Interfaces;
 
 namespace CryptoParserBot.ConsoleApplication;
 
-public class ExchangeRate
+public sealed class ExchangeRate
 {
-    private IExchangeClient _client;
+    private readonly IExchangeClient _publicClient;
 
-    public ExchangeRate(IExchangeClient client)
+    public ExchangeRate(IExchangeClient publicClient)
     {
-        _client = client;
+        _publicClient = publicClient;
     }
 
     public void PrintExchangeRate()
     {
-        var ethUsdt = _client.GetCurrencyPrice("ETHUSDT").ToString(CultureInfo.InvariantCulture);
-        var btcUsdt = _client.GetCurrencyPrice("BTCUSDT").ToString(CultureInfo.InvariantCulture);
+        var ethUsdt = _publicClient.GetCurrencyPrice("ETHUSDT").ToString(CultureInfo.InvariantCulture);
+        var btcUsdt = _publicClient.GetCurrencyPrice("BTCUSDT").ToString(CultureInfo.InvariantCulture);
         
         //Console.Write("USD-RUB: ");
         //ConsoleHelper.Write("60.003 ", ConsoleColor.Red);

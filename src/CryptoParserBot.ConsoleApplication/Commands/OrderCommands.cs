@@ -5,13 +5,14 @@ using static System.String;
 
 namespace CryptoParserBot.ConsoleApplication.Commands;
 
-public sealed class OrderCommands
+public sealed class OrderCommands : CommandsObject<Action>
 {
     private readonly IExchangeClient? _client;
 
     public OrderCommands(IExchangeClient? client)
     {
         _client = client;
+        Commands = CommandHelper.GetConsoleCommands(this, typeof(OrderCommands));
     }
     
     [ConsoleCommand(ConsoleKey.D1)]
@@ -91,7 +92,7 @@ public sealed class OrderCommands
         return price;
     }
     
-    public static void PrintCommands()
+    public override void PrintCommands()
     {
         ConsoleHelper.Write("[Q]", ConsoleColor.Red);
         ConsoleHelper.WriteLine(" - вернуться назад", ConsoleColor.Gray);

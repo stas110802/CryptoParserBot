@@ -6,8 +6,13 @@ using static System.String;
 
 namespace CryptoParserBot.ConsoleApplication.Commands;
 
-public sealed class ConfigCommands
+public sealed class ConfigCommands : CommandsObject<Action>
 {
+    public ConfigCommands()
+    {
+        Commands = CommandHelper.GetConsoleCommands(this, typeof(ConfigCommands));
+    }
+    
     [ConsoleCommand(ConsoleKey.D1)]
     public void CreateNewConfig()
     {
@@ -47,7 +52,7 @@ public sealed class ConfigCommands
         PrintSuccessMessage();
     }
     
-    public static void PrintCommands()
+    public override void PrintCommands()
     {
         ConsoleHelper.Write("[Q]", ConsoleColor.Red);
         ConsoleHelper.WriteLine(" - вернуться назад", ConsoleColor.Gray);

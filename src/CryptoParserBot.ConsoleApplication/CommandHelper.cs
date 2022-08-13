@@ -1,5 +1,4 @@
 ﻿using CryptoParserBot.ConsoleApplication.Attributes;
-using CryptoParserBot.ConsoleApplication.Commands;
 
 namespace CryptoParserBot.ConsoleApplication;
 
@@ -17,7 +16,7 @@ public static class CommandHelper
             var action = (Action) Delegate.CreateDelegate(typeof(Action), target, method);
             result.Add(attr.Key, action);
         }
-
+        
         return result;
     }
     
@@ -35,5 +34,26 @@ public static class CommandHelper
         }
 
         return result;
+    }
+    
+    public static void StartEvent<T>(Dictionary<ConsoleKey, T> command,  CommandsObject<T> obj, ConsoleKey key)
+        where T : class, MulticastDelegate
+    {
+        var action = command.ContainsKey(key) ? command[key] : null;
+        if (action == null) return;
+        
+        (action as Action)?.Invoke();
+        obj.PrintCommands();
+    }
+    
+    public static T? StartEvent<T>(Dictionary<ConsoleKey, Func<T>>? command, ConsoleKey key)
+        where T : class
+    {
+        if (command == null)
+            throw new ArgumentNullException($"{command} is null");
+        
+        var action = command.ContainsKey(key) ? command[key] : null;
+
+        return action?.Invoke();
     }
 }

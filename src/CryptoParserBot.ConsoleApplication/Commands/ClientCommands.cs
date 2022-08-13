@@ -2,11 +2,17 @@
 using CryptoParserBot.ConsoleApplication.Attributes;
 using CryptoParserBot.CryptoBot;
 using CryptoParserBot.ExchangeClients.Clients;
+using CryptoParserBot.ExchangeClients.Interfaces;
 
 namespace CryptoParserBot.ConsoleApplication.Commands;
 
-public sealed class ClientCommands
+public sealed class ClientCommands : CommandsObject<Func<IExchangeClient>>
 {
+    public ClientCommands()
+    {
+        Commands = CommandHelper.GetConsoleCommands<IExchangeClient>(this, typeof(ClientCommands));
+    }
+    
     [ConsoleCommand(ConsoleKey.D1)]
     public NiceHashClient? CreateClientCommand()
     {
@@ -29,5 +35,18 @@ public sealed class ClientCommands
         Console.WriteLine("выбрана.");
         
         return client;
+    }
+
+    public override void PrintCommands()
+    {
+        Console.Clear();
+        ConsoleHelper.Write("[Q]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - вернуться назад", ConsoleColor.Gray);
+
+        ConsoleHelper.Write("[1]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - Nice Hash", ConsoleColor.Gray);
+
+        ConsoleHelper.Write("[2]", ConsoleColor.Red);
+        ConsoleHelper.WriteLine(" - Binance", ConsoleColor.Gray);
     }
 }
