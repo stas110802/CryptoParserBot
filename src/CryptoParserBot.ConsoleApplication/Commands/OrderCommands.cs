@@ -20,16 +20,20 @@ public sealed class OrderCommands : CommandsObject<Action>
     {
         Console.Clear();
         CreateOrder(out var buy, out var sell, out var amount);
-
+        
         if (IsNullOrEmpty(buy) || IsNullOrEmpty(sell) || amount <= 0)
             return;
-
+        
         Console.WriteLine("Вы уверне, что хотите создать ордер?");
         var res = Console.ReadLine()?.ToUpper();
         if(res != "Y")
             return;
         
         _client?.CreateSellOrder(buy + sell, amount);
+
+        Console.WriteLine("Market ордер успешно создан!");
+        Thread.Sleep(1000);
+        Console.Clear();
     }
     
     [ConsoleCommand(ConsoleKey.D2)]
@@ -41,14 +45,21 @@ public sealed class OrderCommands : CommandsObject<Action>
         if (IsNullOrEmpty(buy) || IsNullOrEmpty(sell) || amount <= 0)
             return;
         
+        var price = GetPrice(buy);
         Console.WriteLine("Вы уверне, что хотите создать ордер?");
+        Console.WriteLine("Y\\N");
+        
         var res = Console.ReadLine()?.ToUpper();
         if(res != "Y")
             return;
-        
-        var price = GetPrice(buy);
-        if(price > 0)
+
+        if (price > 0)
+        {
             _client?.CreateSellOrder(buy + sell, amount, price);
+            Console.WriteLine("Limit ордер успешно создан!");
+            Thread.Sleep(1000);
+            Console.Clear();
+        }
     }
 
     private void CreateOrder(out string? sellCoin, out string? buyCoin, out decimal amount)
@@ -68,11 +79,11 @@ public sealed class OrderCommands : CommandsObject<Action>
         Console.Clear();
         Console.Write("Какой коин продаем: ");
         sellCoin = Console.ReadLine()?.ToUpper();
-
+        
         Console.Write("Какой коин покупаем: ");
         buyCoin = Console.ReadLine()?.ToUpper();
         
-        Console.Write($"Обьем продажи({buyCoin}): ");
+        Console.Write($"Сколько продаем({sellCoin}): ");
         var upperRes = decimal.TryParse(
             Console.ReadLine()?.Replace('.', ','), out amount);
         
@@ -85,7 +96,7 @@ public sealed class OrderCommands : CommandsObject<Action>
 
     private decimal GetPrice(string buyCoin)
     {
-        Console.Write($"Цена продажи({buyCoin}): ");
+        Console.Write($"Курс продажи({buyCoin}): ");
         decimal.TryParse(
             Console.ReadLine()?.Replace('.', ','), out var price);
         

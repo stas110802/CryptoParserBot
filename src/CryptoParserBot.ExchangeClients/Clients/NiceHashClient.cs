@@ -132,5 +132,27 @@ namespace CryptoParserBot.ExchangeClients.Clients
             // if the order id is not empty, we have created an order
             return deserialize?["orderId"]?.ToString() != "";
         }
+
+        public void GetMyOrders()
+        {
+            throw new Exception("Method not init");
+            var query =
+                $"?market=BTCUSDT";
+            var response = _api.GetResponseContent(Method.Get, NHEndpoint.MyOrders, true, query, true);
+            var deserialize = JsonConvert.DeserializeObject<JToken>(response);
+        }
+
+        public bool CancelAllOrders()
+        {
+            try
+            {
+                var response = _api.GetResponseContent(Method.Delete, NHEndpoint.CancelAllOrders, true, null, true);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

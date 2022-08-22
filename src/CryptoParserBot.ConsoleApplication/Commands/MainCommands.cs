@@ -140,7 +140,7 @@ public sealed class MainCommands : CommandsObject<Action>
         if (client != null)
             _client = client;
         
-        Thread.Sleep(2500);
+        Thread.Sleep(1500);
         Console.Clear();
     }
 
@@ -196,7 +196,30 @@ public sealed class MainCommands : CommandsObject<Action>
     [ConsoleCommand(ConsoleKey.D6)]
     public void CancelAllSellOrdersCommand()
     {
+        if (_client == null)
+        {
+            Console.WriteLine("[ERROR] Сначала выберите биржу");
+            Thread.Sleep(2000);
+            Console.Clear(); // вывести эти 3 строчки в метод!
+            return;
+        }
+        
+        var res = _client.CancelAllOrders();
 
+        if (res)
+        {
+            Console.Clear();
+            Console.WriteLine("Все ордеры на покупку и продажу были отменены.");
+            Thread.Sleep(2000);
+            Console.Clear(); 
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("Произошла ошибка при попытке отменить ордеры.");
+            Thread.Sleep(2000);
+            Console.Clear(); 
+        }
     }
 
     [ConsoleCommand(ConsoleKey.D7)]

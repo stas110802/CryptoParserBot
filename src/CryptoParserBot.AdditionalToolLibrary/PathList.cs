@@ -8,7 +8,7 @@ public sealed class PathList
     public string ConfigsPath => $"{ProjectPath}\\configs\\";
     private string LogsPath => $"{ProjectPath}\\logs\\";
     private string ProjectPath =>
-        Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\.."));
+        Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\.."));// ..\
 
     public string GetProjectPath()
     {

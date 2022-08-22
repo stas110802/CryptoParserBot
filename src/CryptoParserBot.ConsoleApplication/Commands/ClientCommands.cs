@@ -14,7 +14,7 @@ public sealed class ClientCommands : CommandsObject<Func<IExchangeClient>>
     }
     
     [ConsoleCommand(ConsoleKey.D1)]
-    public NiceHashClient? CreateClientCommand()
+    public NiceHashClient? CreateNiceHashClientCommand()
     {
         var cfg = ConfigInitializer.GetClientConfig();
         

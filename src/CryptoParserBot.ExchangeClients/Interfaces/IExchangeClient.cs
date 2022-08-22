@@ -47,5 +47,13 @@ public interface IExchangeClient
     /// <param name="amount">Amount to sell</param>
     /// <returns></returns>
     public bool CreateSellOrder(string currency, decimal amount);
+    
+    /// <summary>
+    /// Cancel all (sell and buy) orders
+    /// </summary>
+    /// <returns></returns>
+    public bool CancelAllOrders();
+
+    public void GetMyOrders();
 }
 
